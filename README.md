@@ -1,6 +1,8 @@
 R-Heatmap-Functions
 ===================
 
+Altered by Mik Black and Tom Kelly at the University of Otago
+
 Modifications to the R function heatmap.2 {gplots}
 
 requires R packages gplots and gtools
