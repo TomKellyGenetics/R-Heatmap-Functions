@@ -362,3 +362,5 @@ heatmap.mik2<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
     else plot.new()
     invisible(list(rowInd = rowInd, colInd = colInd))
 }
+
+#git edit
