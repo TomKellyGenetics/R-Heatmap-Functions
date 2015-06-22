@@ -20,3 +20,9 @@ heatmap.mik.mod2x: functionality of heatmap.mik2 with supression of column (and 
 heatmap.mik.tk: heatmap.mik (multiple colour bars enabled) with label editing restored from heatmap.2
 
 heatmap.mik.tk2: heatmap.mik2 (multiple and row colour bars enabled) with label editing restored from heatmap.2
+
+Citation: Gregory R. Warnes, Ben Bolker, Lodewijk Bonebakker, Robert Gentleman,
+  Wolfgang Huber Andy Liaw, Thomas Lumley, Martin Maechler, Arni
+  Magnusson, Steffen Moeller, Marc Schwartz and Bill Venables (2015).
+  gplots: Various R Programming Tools for Plotting Data. R package
+  version 2.17.0. http://CRAN.R-project.org/package=gplots
