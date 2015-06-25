@@ -45,7 +45,7 @@ heatmap.mik.tk<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
                                                    c("both", "row"))) {
       if (is.logical(Colv) && (Colv)) 
         dendrogram <- "column"
-      else dedrogram <- "none"
+      else dendrogram <- "none"
       warning("Discrepancy: Rowv is FALSE, while dendrogram is `", 
               dendrogram, "'. Omitting row dendogram.")
     }
