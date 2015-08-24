@@ -21,6 +21,8 @@ requires R packages `gplots` and `gtools`
 
 `heatmap.mik.tk2`: `heatmap.mik2` (multiple and row colour bars enabled) with label editing restored from `heatmap.2`
 
+`heatmap.mik.tk3`: `heatmap.mik2` (multiple and row colour bars enabled) with label editing restored from `heatmap.2` and adjusting width of color bars with colbarsize (relative to default of 1).
+
 Citation: Gregory R. Warnes, Ben Bolker, Lodewijk Bonebakker, Robert Gentleman,
   Wolfgang Huber Andy Liaw, Thomas Lumley, Martin Maechler, Arni
   Magnusson, Steffen Moeller, Marc Schwartz and Bill Venables (2015).
