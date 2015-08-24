@@ -1,4 +1,4 @@
-heatmap.mik.tk2 <- function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE, 
+heatmap.mik.tk2<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE, 
                        distfun = dist, hclustfun = hclust, dendrogram = c("both", 
                                                                           "row", "column", "none"), symm = FALSE, scale = c("none", 
                                                                                                                             "row", "column"), na.rm = TRUE, revC = identical(Colv, 
@@ -45,7 +45,7 @@ heatmap.mik.tk2 <- function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
                                                    c("both", "row"))) {
       if (is.logical(Colv) && (Colv)) 
         dendrogram <- "column"
-      else dendrogram <- "none"
+      else dedrogram <- "none"
       warning("Discrepancy: Rowv is FALSE, while dendrogram is `", 
               dendrogram, "'. Omitting row dendogram.")
     }
@@ -182,12 +182,20 @@ heatmap.mik.tk2 <- function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
     } 
   }
   if (!missing(RowSideColors)) {
-    if (!is.character(RowSideColors) || length(RowSideColors) != 
-          nr) 
-      stop("'RowSideColors' must be a character vector of length nrow(x)")
-    lmat <- cbind(lmat[, 1] + 1, c(rep(NA, nrow(lmat) - 1), 
-                                   1), lmat[, 2] + 1)
-    lwid <- c(lwid[1], 0.2, lwid[2])
+    #        if (!is.character(RowSideColors) || length(RowSideColors) != 
+    #            nc) 
+    #            stop("'RowSideColors' must be a character vector of length ncol(x)")
+    if(is.null(ncol(RowSideColors))){
+      lmat <- cbind(lmat[, 1] + 1, c(rep(NA, nrow(lmat) - 1), 
+                                     1), lmat[, 2] + 1)
+      lwid <- c(lwid[1], 0.2, lwid[2])
+    }
+    else{
+      lmat<- lmat+ncol(RowSideColors)
+      lmat<-cbind(lmat[,1], rbind(matrix(data=NA, (nrow(lmat)-1), ncol(RowSideColors)), 1:ncol(RowSideColors)),lmat[,2])
+      #          lwid <- c(wid[1], 0.2*nrow(RowSideColors), lhei[2])
+      lwid <- c(lwid[1], rep(0.2,ncol(RowSideColors)), lwid[2])
+    } 
   }
   lmat[is.na(lmat)] <- 0
   op <- par(no.readonly = TRUE)
