@@ -8,7 +8,7 @@ heatmap.mik2<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
         "row", "both", "none"), tracecol = "cyan", hline = median(breaks), 
     vline = median(breaks), linecol = tracecol, margins = c(5, 
         5), ColSideColors, RowSideColors, cexRow = 0.2 + 1/log10(nr), 
-    cexCol = 0.2 + 1/log10(nc), labRow = NULL, labCol = NULL, 
+    cexCol = 0.2 + 1/log10(nc), labRow = NULL, labCol = NULL, cexLab = 1,
     key = TRUE, keysize = 1.5, density.info = c("histogram", 
         "density", "none"), denscol = tracecol, symkey = min(x < 
         0, na.rm = TRUE), densadj = 0.25, main = NULL, xlab = NULL, 
@@ -251,11 +251,11 @@ heatmap.mik2<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
     axis(1, 1:nc, labels = labCol, las = 2, line = -0.5, tick = 0, 
         cex.axis = cexCol)
     if (!is.null(xlab)) 
-        mtext(xlab, side = 1, line = margins[1] - 1.25)
+        mtext(xlab, side = 1, line = margins[1] - 1.25, cex = cexLab)
     axis(4, iy, labels = labRow, las = 2, line = -0.5, tick = 0, 
         cex.axis = cexRow)
     if (!is.null(ylab)) 
-        mtext(ylab, side = 4, line = margins[2] - 1.25)
+        mtext(ylab, side = 4, line = margins[2] - 1.25, cex = cexLab)
     if (!missing(add.expr)) 
         eval(substitute(add.expr))
     if (!missing(colsep)) 
@@ -362,5 +362,3 @@ heatmap.mik2<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
     else plot.new()
     invisible(list(rowInd = rowInd, colInd = colInd))
 }
-
-#git edit
