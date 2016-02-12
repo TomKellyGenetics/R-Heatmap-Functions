@@ -8,7 +8,7 @@ heatmap.mik.tk3<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
                                                                                       "row", "both", "none"), tracecol = "cyan", hline = median(breaks), 
                        vline = median(breaks), linecol = tracecol, margins = c(5, 
                                                                                5), ColSideColors, RowSideColors, cexRow = 0.2 + 1/log10(nr), 
-                       cexCol = 0.2 + 1/log10(nc), labRow = NULL, labCol = NULL,srtRow = NULL, srtCol = NULL, adjRow = c(0,NA), adjCol = c(NA, 0), 
+                       cexCol = 0.2 + 1/log10(nc), labRow = NULL, labCol = NULL, cexLab = 1, srtRow = NULL, srtCol = NULL, adjRow = c(0,NA), adjCol = c(NA, 0), 
                        
                        offsetRow = 0.5, offsetCol = 0.5, colRow = NULL, colCol = NULL, key = TRUE, keysize = 1.5, colbarsize = 1,
                        
@@ -45,7 +45,7 @@ heatmap.mik.tk3<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
                                                    c("both", "row"))) {
       if (is.logical(Colv) && (Colv)) 
         dendrogram <- "column"
-      else dedrogram <- "none"
+      else dendrogram <- "none"
       warning("Discrepancy: Rowv is FALSE, while dendrogram is `", 
               dendrogram, "'. Omitting row dendogram.")
     }
@@ -278,9 +278,9 @@ heatmap.mik.tk3<-function (x, Rowv = TRUE, Colv = if (symm) "Rowv" else TRUE,
     else warning("Invalid value for srtRow ignored.")
   }
   if (!is.null(xlab)) 
-    mtext(xlab, side = 1, line = margins[1] - 1.25)
+    mtext(xlab, side = 1, line = margins[1] - 1.25, cex = cexLab)
   if (!is.null(ylab)) 
-    mtext(ylab, side = 4, line = margins[2] - 1.25)
+    mtext(ylab, side = 4, line = margins[2] - 1.25, cex = cexLab)
   if (!missing(add.expr)) 
     eval(substitute(add.expr))
   if (!missing(colsep)) 
